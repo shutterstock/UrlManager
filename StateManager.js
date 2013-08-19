@@ -55,7 +55,7 @@ StateManager = function() {
 
 	self.readUrl = function() {
 		var vars = {}, hash;
-		var q = document.URL.split('?')[1]
+		var q = window.location.href.split('?')[1];
 
 		if(q != undefined && q.length){
 			q = q.replace(/#$/,'');
