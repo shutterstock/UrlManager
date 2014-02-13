@@ -1,7 +1,7 @@
 UrlManager
 ============
 
-Urlmanager is a javascript class that gives you an easy way to get and set url parameters.  
+UrlManager is a javascript class that gives you an easy way to get and set url parameters.  
 
 
 Example:
