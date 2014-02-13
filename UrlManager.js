@@ -1,10 +1,10 @@
-// manage reading and writing page state
-StateManager = function() {
+// manage reading and writing page url state
+UrlManager = function() {
 
 	var self = this;
 	self.state = {};
-	
-	self.setState = function(field,value) {
+
+	self.setParam = function(field,value) {
 		if (field.match(/\[\]$/)) {
 			if (!self.state[field]) {
 				self.state[field] = {};
@@ -16,29 +16,29 @@ StateManager = function() {
 		self.updateUrl();
 	}
 
-	self.removeState = function(field,value) {
+	self.removeParam = function(field,value) {
 		if (field.match(/\[\]$/)) {
 			if (self.state[field] && self.state[field][value]) {
 				delete self.state[field][value];
 			}
-			
+
 		} else {
 			delete self.state[field];
 		}
 		self.updateUrl();
-	}	    
+	}
 
-	self.clearState = function(field) {
+	self.clearParam = function(field) {
 		delete self.state[field];
 		self.updateUrl();
 	}
 
-	self.getStates = function() {
+	self.getParams = function() {
 		return self.state;
 	}
 
 	// get a specific field
-	self.getState = function(field) {
+	self.getParam = function(field) {
 		if (field.match(/\[\]$/)) {
 			var list = [];
 			// return objects as a list

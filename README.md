@@ -1,7 +1,7 @@
-StateManager
+UrlManager
 ============
 
-Statemanager is a javascript class that gives you an easy way to get and set url parameters.  
+Urlmanager is a javascript class that gives you an easy way to get and set url parameters.  
 
 
 Example:
@@ -9,31 +9,31 @@ Example:
      if your current url is: 
      www.mydomain.com/index.html?category=pets&animal[]=cat&animal[]=dog
 
-     var stateManager = new StateManager();
-     stateManager.readUrl();
+     var urlManager = new UrlManager();
+     urlManager.readUrl();
     
-     var c = stateManager.getState('category');
+     var c = urlManager.getParam('category');
      //c == 'pets'
 
-     var a = stateManager.getState('animal[]');
+     var a = urlManager.getParam('animal[]');
      //a = ['cat','dog'];
 
-     stateManager.setState('category','zoo');
+     urlManager.setParam('category','zoo');
      // updates the current URL to be: www.mydomain.com/index.html?category=zoo&animal[]=cat&animal[]=dog
      
-     stateManager.setState('animal[]','ping');
+     urlManager.setParam('animal[]','ping');
      // updates the current URL to be: www.mydomain.com/index.html?category=pets&animal[]=cat&animal[]=dog&animal[]=pig
      
-     stateManager.removeState('animal[]','dog');
+     urlManager.removeParam('animal[]','dog');
      // removes "animal[]=dog" from the current URL
      
-     stateManager.clearState('animal[]');
+     urlManager.clearParam('animal[]');
      // removes "animal[]=cat&animal[]=dog" from the current URL
      
-     stateManager.clearState('category');
+     urlManager.clearParam('category');
      // removes "category=pets" from the url
      
-     var h = stateManager.getStates();
+     var h = urlManager.getParams();
      // h == {category: 'pets', animal: {'cat': 1, 'dog': 1}}
 
 
